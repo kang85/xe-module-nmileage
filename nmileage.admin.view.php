@@ -7,20 +7,6 @@
  */ 
 class nmileageAdminView extends nmileage
 {
-
-	function nmileageAdminView()
-	{
-        if(Context::get('module')=='cympusadmin')
-        {
-            $classfile = _XE_PATH_.'modules/cympusadmin/cympusadmin.class.php';
-            if(file_exists($classfile))
-            {
-                    require_once($classfile);
-                    cympusadmin::init();
-            }
-        }
-	}
-
 	/**
 	 * @brief Contructor
 	 **/
@@ -60,7 +46,15 @@ class nmileageAdminView extends nmileage
 		$this->setTemplatePath($tpl_path);
 		Context::set('tpl_path', $tpl_path);
 
-
+        if(Context::get('module')=='cympusadmin')
+        {
+            $classfile = _XE_PATH_.'modules/cympusadmin/cympusadmin.class.php';
+            if(file_exists($classfile))
+            {
+                    require_once($classfile);
+                    cympusadmin::init();
+            }
+        }
 	}
 
 	function dispNmileageAdminConfig() 
